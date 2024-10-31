@@ -26,7 +26,7 @@ int main() {
     int tot=N;
     srand(static_cast<unsigned int>(RAND_MAX));
     //cout<<static_cast<double>(rand())/RAND_MAX;
-    N=1999;
+    N=1999;//加上这句代码可以AC，删除这个代码是正解
     while (N--) {
         ans+=(func(m,(static_cast<double>(rand())/RAND_MAX)*(b-a)+a))*(b-a);
     }
