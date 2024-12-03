@@ -2,7 +2,6 @@
 using namespace std;
 struct line{
     int x1,y1,x2,y2;
-    // y = ax + b
     double a,b;
 };
 line lines[100005];
