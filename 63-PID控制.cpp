@@ -1,25 +1,25 @@
 #include <iostream>
+
 using namespace std;
 
-typedef struct PIDController{
-    double Kp = 0, Ki = 0, Kd = 0; // 比例、积分、微分系数
-    double preError = 0, integral = 0; // 前次误差、积分
+struct PIDController {
+    double Kp = 0, Ki = 0, Kd = 0;
+    double preError = 0, integral = 0;
 } PIDData;
 
-double PIDCalculate(PIDData *pid, double setpoint, double measuredValue){
-    // ?
-}
+double setpoint, measuredValue;
+int n;
 
-int main(){
-    PIDData test;
-    cin >> test.Kp >> test.Ki >> test.Kd;
-    double setpoint, measuredValue;
-    cin >> setpoint >> measuredValue;
-    int n;
-    cin >> n;
-    for (int i = 1; i <= n; i++){
-        cout << i << " ";
-        cout << PIDCalculate(&test, setpoint, measuredValue) << endl;
+int main() {
+    cin >> PIDData.Kp >> PIDData.Ki >> PIDData.Kd >> setpoint >> measuredValue >> n;
+    for (int i = 1; i <= n; i++) {
+        double error = setpoint - measuredValue;
+        PIDData.integral += error;
+        double dx = error - PIDData.preError, output =
+                output + PIDData.Kp * error + PIDData.integral * PIDData.Ki + PIDData.Kd * dx;
+        printf("%d %.6lf\n", i, output);
+        PIDData.preError = error;
+        measuredValue = output;
     }
     return 0;
 }
