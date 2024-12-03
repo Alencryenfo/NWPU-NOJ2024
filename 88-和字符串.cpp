@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
-int s[100005];
+int s[(int)1e6];
 int n;
 long long sub_int(int a , int b){
     long long num = 0;
